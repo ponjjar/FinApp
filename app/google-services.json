@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "846495494117",
+    "project_id": "cuco-agenda",
+    "storage_bucket": "cuco-agenda.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:846495494117:android:a3ddf26165c091a1e2c90c",
+        "android_client_info": {
+          "package_name": "com.caiqueponjjar.cuco"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "846495494117-qpkjo3r9qhaip6nnhgg3nvhuh59ovam2.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.caiqueponjjar.cuco",
+            "certificate_hash": "75ba9048f8589b9a4ad437abdef782e60978a19b"
+          }
+        },
+        {
+          "client_id": "846495494117-7r5csv8e9ibgva6v0g2vh34ttq7vcp2c.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD9CI25rl3Ce676Qpat0SBd_jyTu3hWaV8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "846495494117-7r5csv8e9ibgva6v0g2vh34ttq7vcp2c.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
