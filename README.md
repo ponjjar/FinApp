@@ -1,7 +1,7 @@
 
 <p align="center">
 
-<img src="https://user-images.githubusercontent.com/58194653/185235900-81cb868f-297e-4682-a66b-91b7c124c5ff.png" alt="FinApp" width="50%"/>
+<img src="https://user-images.githubusercontent.com/58194653/185239830-94960385-707f-4513-b762-210026ef8312.png" alt="FinApp" width="50%"/>
 
 </p>
 <h3 align="center"> Seu aplicativo de organização financeira pessoal.</h3>
