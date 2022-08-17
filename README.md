@@ -1,4 +1,2 @@
-# Cuco
-Agenda pessoal com interface dinâmica programada em Kotlin. 
-
-Densevolvida durante os estudos de kotlin 
+# FinApp
+Aplicativo Financeiro com interface dinâmica programada em Kotlin. 
