@@ -230,8 +230,8 @@ class FirstFragment : Fragment(R.layout.activity_firstfragment){
 
                     itemList.add(
                         Item(
-                            "Tente anotar algo legal",
-                            "Clique no botão laranja",
+                            "Gastou?",
+                            "Clique no botão azul para adicionar",
                             Color.parseColor("#E05F22"),
                             "",
                             R.drawable.logo4,

@@ -173,9 +173,9 @@ class LoginActivity : AppCompatActivity() {
 
     }
     fun startAnimation(view: Int, activity: Activity) {
-        val start = Color.parseColor("#E1233F")
-        val mid = Color.parseColor("#D8523A")
-        val end = Color.parseColor("#E83515")
+        val start = Color.parseColor("#128bb3")
+        val mid = Color.parseColor("#4287f5")
+        val end = Color.parseColor("#6212b3")
         val evaluator = ArgbEvaluator()
         val preloader = activity.findViewById<View>(R.id.gradientPreloaderView)
         preloader.visibility = View.VISIBLE

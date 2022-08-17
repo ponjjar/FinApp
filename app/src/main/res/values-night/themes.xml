@@ -2,8 +2,8 @@
     <!-- Base application theme. -->
     <style name="Theme.Cuco" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">#DA7329</item>
-        <item name="colorPrimaryVariant">#712F01</item>
+        <item name="colorPrimary">#294FDA</item>
+        <item name="colorPrimaryVariant">#013371</item>
         <item name="colorOnPrimary">@color/black</item>
 
         <item name="android:windowBackground">@color/white</item>

@@ -46,7 +46,7 @@
         android:layout_marginBottom="16dp"
         android:clickable="true"
         android:tint="#F3000000"
-        app:backgroundTint="@color/orange"
+        app:backgroundTint="@color/lightblue"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:srcCompat="@drawable/addicon"
@@ -57,7 +57,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:background="@drawable/gradientoolbar"
-        android:backgroundTint="#2ED99362"
+        android:backgroundTint="#2E6276D9"
         android:elevation="2dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -68,18 +68,18 @@
             android:id="@+id/search"
             android:layout_width="40dp"
             android:layout_height="40dp"
-            app:srcCompat="@android:drawable/ic_menu_search"  />
+            app:srcCompat="@android:drawable/ic_menu_search" />
 
         <TextView
             android:id="@+id/welcomeText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginRight="56dp"
             android:gravity="center"
             android:padding="4dp"
             android:text="welcome"
             android:textAppearance="@style/TextAppearance.AppCompat.Display4"
             android:textSize="24sp"
-            android:layout_marginRight="56dp"
             tools:layout_editor_absoluteX="16dp"
             tools:layout_editor_absoluteY="8dp" />
 

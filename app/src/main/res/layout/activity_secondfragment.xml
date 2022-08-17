@@ -44,7 +44,7 @@
                 android:layout_marginStart="8dp"
                 android:ems="10"
                 android:hint="@string/titulo"
-                android:inputType="textPersonName"
+                android:inputType="number"
                 android:minHeight="48dp" />
 
             <TextView
@@ -108,7 +108,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:srcCompat="@drawable/colorpickericon"
-                    app:tint="#E05F22" />
+                    app:tint="#2291e0" />
 
                 <TextView
                     android:id="@+id/textView"

@@ -36,7 +36,7 @@ public class SecondFragment : DialogFragment() {
         val buttonAdicionar = myView.findViewById<MaterialButton>(R.id.AddBtn)
 
         var category : String? = "null"
-        var colorPicked: Int = Color.parseColor("#E05F22");
+        var colorPicked: Int = Color.parseColor("#2291e0");
         val colorTextPrefered = myView.findViewById<ImageView>(R.id.imageViewColor)
         colorTextPrefered.setColorFilter(colorPicked - 5, android.graphics.PorterDuff.Mode.MULTIPLY)
         var getThisDialog = dialog;

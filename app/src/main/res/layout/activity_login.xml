@@ -102,7 +102,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:gravity="center_horizontal"
-            android:text="Prazer, sou o Cuco. "
+            android:text="Prazer, sou o Fin. "
             android:textColor="#FFFFFF"
             android:textSize="20sp" />
 

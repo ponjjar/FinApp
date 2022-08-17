@@ -2,8 +2,8 @@
     <!-- Base application theme. -->
     <style name="Theme.Cuco"  parent="Theme.MaterialComponents.Light.NoActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">#B74100</item>
-        <item name="colorPrimaryVariant">#F28E71</item>
+        <item name="colorPrimary">#006BD6</item>
+        <item name="colorPrimaryVariant">#71B2F2</item>
         <item name="colorOnPrimary">@color/white</item>
 
 

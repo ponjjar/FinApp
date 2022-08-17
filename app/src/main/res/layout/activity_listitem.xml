@@ -27,8 +27,9 @@
             android:text="Line 1"
             android:textSize="22sp"
             android:textStyle="bold"
+            card_view:layout_constraintBottom_toTopOf="@+id/linearLayout2"
             card_view:layout_constraintStart_toStartOf="parent"
-            tools:layout_editor_absoluteY="10dp" />
+            card_view:layout_constraintTop_toTopOf="parent" />
 
         <LinearLayout
             android:id="@+id/linearLayout2"

@@ -1,9 +1,9 @@
 <resources>
-    <string name="app_name">Cuco</string>
+    <string name="app_name">FinApp</string>
     <string name="welcome">Bem vindo!</string>
     <string name="adicionar_novo_item">Adicionar novo item</string>
-    <string name="subtitulo">Subtitulo</string>
-    <string name="titulo">Titulo</string>
+    <string name="subtitulo">Titulo</string>
+    <string name="titulo">Preço</string>
     <string name="title_activity_login">LoginActivity</string>
     <string name="prompt_email">Email</string>
     <string name="prompt_password">Senha</string>
