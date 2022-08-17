@@ -1,16 +1,15 @@
-package com.caiqueponjjar.cuco
+package com.caiqueponjjar.finapp
 
 import android.graphics.Color
 import android.os.Bundle
 import android.view.View
 import android.widget.ImageView
-import android.widget.Toast
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.widget.doOnTextChanged
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.caiqueponjjar.cuco.helper.usuario
+import com.caiqueponjjar.finapp.helper.usuario
 import com.google.android.material.textfield.TextInputEditText
 import com.google.firebase.database.*
 import com.google.firebase.database.ktx.database
@@ -70,7 +69,7 @@ class search : Fragment(R.layout.activity_search){
                                         " ",
                                         itemColor?.toInt() ?: Color.parseColor("#E05F22"),
                                         userKey.toString(),
-                                        getResources().getIdentifier(usuario().getIcons(category?.toInt() ?: 0) , "drawable", "com.caiqueponjjar.cuco")?: R.drawable.roundedconers,
+                                        getResources().getIdentifier(usuario().getIcons(category?.toInt() ?: 0) , "drawable", "com.caiqueponjjar.finapp")?: R.drawable.roundedconers,
                                         "Searcher"
                                     )
                                 )

@@ -1,8 +1,7 @@
-package com.caiqueponjjar.cuco;
+package com.caiqueponjjar.finapp;
 
 import android.content.Intent
 import android.graphics.Color
-import android.media.Image
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -12,7 +11,7 @@ import android.widget.*
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.res.ResourcesCompat
 import androidx.fragment.app.DialogFragment
-import com.caiqueponjjar.cuco.helper.usuario
+import com.caiqueponjjar.finapp.helper.usuario
 import com.google.android.material.button.MaterialButton
 import com.maxkeppeler.sheets.color.ColorSheet
 import com.maxkeppeler.sheets.info.InfoSheet

@@ -1,4 +1,4 @@
-package com.caiqueponjjar.cuco.ui.login
+package com.caiqueponjjar.finapp.ui.login
 
 import android.animation.ArgbEvaluator
 import android.animation.TimeAnimator
@@ -10,26 +10,22 @@ import android.graphics.drawable.GradientDrawable
 import android.os.Bundle
 import android.view.View
 import android.view.animation.Animation
-import android.view.animation.Animation.AnimationListener
 import android.view.animation.AnimationUtils
 import android.widget.*
 import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AppCompatActivity
-import com.caiqueponjjar.cuco.FirstFragment
-import com.caiqueponjjar.cuco.MainActivity
+import com.caiqueponjjar.finapp.MainActivity
 
-import com.caiqueponjjar.cuco.R
+import com.caiqueponjjar.finapp.R
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.auth.FirebaseAuth
 
-import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.UserProfileChangeRequest
 import com.google.firebase.auth.SignInMethodQueryResult
 
-import androidx.annotation.NonNull
-import com.caiqueponjjar.cuco.SelectLogin
-import com.caiqueponjjar.cuco.helper.usuario
+import com.caiqueponjjar.finapp.SelectLogin
+import com.caiqueponjjar.finapp.helper.usuario
 
 import com.google.android.gms.tasks.OnCompleteListener
 import java.lang.Exception

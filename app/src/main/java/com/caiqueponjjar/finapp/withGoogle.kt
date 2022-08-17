@@ -1,22 +1,15 @@
-package com.caiqueponjjar.cuco
+package com.caiqueponjjar.finapp
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.view.Gravity
 import android.widget.Toast
 
-import androidx.annotation.NonNull
 import androidx.constraintlayout.widget.Constraints.TAG
 import com.google.android.gms.auth.api.signin.*
 import com.google.android.gms.auth.api.signin.GoogleSignIn.getClient
-import com.google.android.gms.games.Games
-import com.google.android.gms.games.GamesClient
 
-import com.google.android.gms.tasks.OnFailureListener
-
-import com.google.android.gms.tasks.OnSuccessListener
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
@@ -24,18 +17,8 @@ import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.google.android.gms.common.api.ApiException
 import com.google.android.gms.tasks.Task
 import android.R
-import android.os.PersistableBundle
-import android.provider.AlarmClock.EXTRA_MESSAGE
-import android.view.View
 import androidx.activity.OnBackPressedCallback
-import androidx.fragment.app.Fragment
-import com.caiqueponjjar.cuco.helper.usuario
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
-import com.google.android.gms.tasks.OnCompleteListener
-import com.google.firebase.auth.FirebaseUser
-
-
-
 
 
 class withGoogle : AppCompatActivity() {
@@ -48,7 +31,7 @@ class withGoogle : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(com.caiqueponjjar.cuco.R.layout.activity_with_google)
+        setContentView(com.caiqueponjjar.finapp.R.layout.activity_with_google)
         configureGoogleSignIn();
         doSignInSignOut()
         val callback: OnBackPressedCallback =

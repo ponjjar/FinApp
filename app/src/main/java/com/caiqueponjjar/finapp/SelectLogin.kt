@@ -1,4 +1,4 @@
-package com.caiqueponjjar.cuco
+package com.caiqueponjjar.finapp
 
 import android.content.Intent
 import android.media.MediaPlayer
@@ -9,20 +9,14 @@ import android.view.View
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import androidx.appcompat.app.AppCompatActivity
-import com.caiqueponjjar.cuco.R.*
-import com.caiqueponjjar.cuco.helper.usuario
-import com.caiqueponjjar.cuco.ui.login.LoginActivity
-import android.R
-import android.app.Dialog
-import android.content.Context
-import android.content.DialogInterface
+import com.caiqueponjjar.finapp.R.*
+import com.caiqueponjjar.finapp.helper.usuario
+import com.caiqueponjjar.finapp.ui.login.LoginActivity
 import android.content.SharedPreferences
 import android.view.Window
 import android.view.WindowManager
 import android.widget.*
 import androidx.appcompat.app.AlertDialog
-import androidx.fragment.app.FragmentManager
-import androidx.fragment.app.FragmentTransaction
 
 
 class SelectLogin : AppCompatActivity() {

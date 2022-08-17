@@ -1,4 +1,4 @@
-package com.caiqueponjjar.cuco;
+package com.caiqueponjjar.finapp;
 
 
 import android.app.NotificationChannel
@@ -12,7 +12,7 @@ import android.os.IBinder
 import android.widget.Toast
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
-import com.caiqueponjjar.cuco.helper.usuario
+import com.caiqueponjjar.finapp.helper.usuario
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot

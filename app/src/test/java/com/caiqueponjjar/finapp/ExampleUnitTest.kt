@@ -1,4 +1,4 @@
-package com.caiqueponjjar.cuco
+package com.caiqueponjjar.finapp
 
 import org.junit.Test
 

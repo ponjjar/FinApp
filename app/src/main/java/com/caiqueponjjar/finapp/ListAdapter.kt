@@ -1,11 +1,9 @@
-package com.caiqueponjjar.cuco
+package com.caiqueponjjar.finapp
 
 import android.annotation.SuppressLint
 import android.app.Activity
-import android.content.DialogInterface
 import android.content.Intent
 import android.graphics.Color
-import android.graphics.drawable.ClipDrawable.VERTICAL
 import android.view.LayoutInflater
 import android.view.MotionEvent
 import android.view.View
@@ -15,11 +13,8 @@ import android.view.animation.AnimationUtils
 import android.widget.*
 import androidx.appcompat.app.AlertDialog
 import androidx.cardview.widget.CardView
-import androidx.core.content.ContentProviderCompat.requireContext
-import androidx.core.content.contentValuesOf
 import androidx.recyclerview.widget.RecyclerView
-import com.caiqueponjjar.cuco.helper.usuario
-import com.maxkeppeler.sheets.options.DisplayMode
+import com.caiqueponjjar.finapp.helper.usuario
 import com.maxkeppeler.sheets.options.Option
 import com.maxkeppeler.sheets.options.OptionsSheet
 

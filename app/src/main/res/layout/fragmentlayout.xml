@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
-    android:name="com.caiqueponjjar.cuco.FirstFragment"
+    android:name="com.caiqueponjjar.finapp.FirstFragment"
     tools:context=".MainActivity"
     android:id="@+id/fragment_container_view">
 

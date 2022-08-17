@@ -1,6 +1,5 @@
-package com.caiqueponjjar.cuco
+package com.caiqueponjjar.finapp
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Window

@@ -1,4 +1,4 @@
-package com.caiqueponjjar.cuco
+package com.caiqueponjjar.finapp
 
 import android.content.BroadcastReceiver
 import android.content.Context

@@ -1,4 +1,4 @@
-package com.caiqueponjjar.cuco;
+package com.caiqueponjjar.finapp;
 
 import android.app.NotificationChannel
 import android.app.NotificationManager
@@ -21,12 +21,10 @@ import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.LinearSmoothScroller
 import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-import com.caiqueponjjar.cuco.helper.usuario
-import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.caiqueponjjar.finapp.helper.usuario
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
