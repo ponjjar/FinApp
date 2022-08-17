@@ -59,7 +59,7 @@ Um sistema organizado para tornar a experiência de lidar com o dinheiro menos e
 
 ```
 # Clone o repositório
-$ git clone https://github.com/Caique-P/Cuco
+$ git clone https://github.com/Caique-P/FinApp
 
 # Abra o projeto no Android Studio e divirta-se
 ```
