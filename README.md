@@ -29,7 +29,7 @@
 <img src="https://img.shields.io/badge/Ivan Poppi-green.svg" />
 <img src="https://img.shields.io/badge/Diogo Lima-red.svg" />
 </p>
-<h2>Introdução </h2>
+<h2  align="center" >Introdução </h2>
 <p> Pelo intermédio da pesquisa realizada pela CNN, 76% dos brasileiros não administraram bem finanças pessoais durante a pandemia, 58% dos entrevistados afirmaram comprar mais que o necessário, mesmo que isso aborde juros e consequentemente o item comprado saia mais caro.<br/><br/>
   Portanto, tivemos a ideia de criar um aplicativo pelo fácil uso e acesso que possa ajudar o usuário.</p>
 <h2 align="center"> Descrição </h2>
