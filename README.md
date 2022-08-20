@@ -39,7 +39,7 @@ Um sistema organizado para tornar a experiência de lidar com o dinheiro menos e
 <p align="center">
 <i>Organize a sua vida financeira utilizando o FinApp.</i> </p>
 
-
+<center><img src="https://user-images.githubusercontent.com/58194653/185769373-910d652a-e3b4-4cde-8ac2-91ca042b1cc1.png" width="100%"/></center>
 <!--<img src="https://user-images.githubusercontent.com/58194653/153785417-79ad31a6-9942-4eda-b095-b326ad0380e8.png" width="100%"/>-->
 
 <h2 align="center"> Ferramentas utilizadas 🚀 </h2>
