@@ -94,6 +94,7 @@ class usuario {
     }
 
     fun deleteData(activity: Activity, Key: String){
+
         val userId = getUniqueId(activity)
         val ref = FirebaseDatabase.getInstance().reference
         val query = ref.child("users").child(userId!!).child("message").child(Key)

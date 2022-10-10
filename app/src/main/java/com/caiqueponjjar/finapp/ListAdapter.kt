@@ -13,6 +13,7 @@ import android.view.animation.AnimationUtils
 import android.widget.*
 import androidx.appcompat.app.AlertDialog
 import androidx.cardview.widget.CardView
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.RecyclerView
 import com.caiqueponjjar.finapp.helper.usuario
 import com.maxkeppeler.sheets.options.Option
@@ -25,15 +26,26 @@ class ListAdapter(val itemList: ArrayList<Item>, val activity: Activity) : Recyc
     val itensListed = ArrayList<String>()
     override fun onBindViewHolder(p0: ViewHolder, @SuppressLint("RecyclerView") p1: Int) {    //p0 = ViewHolder, p1 = position
         if (itemList[p1].itemTitle.isNotEmpty() || itemList[p1].itemTitle != null) {
-            p0.titleTextView.text = itemList[p1].itemTitle
-        p0.subtitleTextView.text = itemList[p1].itemSubtitle
-
+            if(itemList[p1].itemType != "ClickItem") {
+                p0.titleTextView.text = itemList[p1].itemTitle
+                p0.subtitleTextView.text = itemList[p1].itemSubtitle
+                p0.dateTextView.text = itemList[p1].itemDate
+                p0.clickconstraint.visibility = View.GONE
+                p0.normalconstraint.visibility = View.VISIBLE
+            }else {
+                p0.clickconstraint.visibility = View.VISIBLE
+                p0.normalconstraint.visibility = View.GONE
+                p0.clickTextView.text = itemList[p1].itemTitle
+            }
     }
         if(itemList[p1].itemColor == Color.parseColor("#00000000")){
             p0.itemColor.visibility = View.GONE
         }
         p0.itemColor.setColorFilter(    //seta a cor do item
             itemList[p1].itemColor, android.graphics.PorterDuff.Mode.SRC_IN
+        )
+        p0.clickconstraint.setBackgroundColor(    //seta a cor do item
+                itemList[p1].itemColor
         )
         p0.itemCategory.setImageResource(    //seta a categoria do item
             itemList[p1].itemCategory
@@ -175,8 +187,10 @@ class ListAdapter(val itemList: ArrayList<Item>, val activity: Activity) : Recyc
                             }
                             override fun onAnimationRepeat(arg0: Animation) {}
                             override fun onAnimationEnd(arg0: Animation) {
-                                usuario().deleteData(activity, itemList[p1].itemKey)
-                                animating = false
+                                if(itemList[p1].itemType != "ClickItem") {
+                                    usuario().deleteData(activity, itemList[p1].itemKey)
+                                    animating = false
+                                }
                             }
                         })
 
@@ -205,8 +219,10 @@ class ListAdapter(val itemList: ArrayList<Item>, val activity: Activity) : Recyc
                                 animating = true}
                             override fun onAnimationRepeat(arg0: Animation) {}
                             override fun onAnimationEnd(arg0: Animation) {
-                                usuario().deleteData(activity, itemList[p1].itemKey)
-                                animating = false
+                                if(itemList[p1].itemType != "ClickItem") {
+                                    usuario().deleteData(activity, itemList[p1].itemKey)
+                                    animating = false
+                                }
                             }
                         })
                       //  Toast.makeText(this, "left2right swipe", Toast.LENGTH_SHORT).show()
@@ -267,8 +283,10 @@ class ListAdapter(val itemList: ArrayList<Item>, val activity: Activity) : Recyc
 
                             override fun onAnimationRepeat(arg0: Animation) {}
                             override fun onAnimationEnd(arg0: Animation) {
-                                usuario().deleteData(activity, itemList[p1].itemKey)
-                                animating = false
+                                if(itemList[p1].itemType != "ClickItem") {
+                                    usuario().deleteData(activity, itemList[p1].itemKey)
+                                    animating = false
+                                }
                             }
                         })
                     }
@@ -345,7 +363,12 @@ class ListAdapter(val itemList: ArrayList<Item>, val activity: Activity) : Recyc
     }
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
          var titleTextView : TextView = itemView.findViewById<TextView>(R.id.title_textview)
+
+        var normalconstraint : ConstraintLayout = itemView.findViewById<ConstraintLayout>(R.id.normalconstraint)
+        var clickconstraint : ConstraintLayout = itemView.findViewById<ConstraintLayout>(R.id.clickconstraint)
+        var clickTextView : TextView = itemView.findViewById<TextView>(R.id.click_textview)
          var subtitleTextView : TextView = itemView.findViewById<TextView>(R.id.subtitle_textview)
+        var dateTextView : TextView = itemView.findViewById<TextView>(R.id.date_textview)
          var cardView : CardView = itemView.findViewById(R.id.card_pertanyaan)
          var itemColor : ImageView = itemView.findViewById(R.id.colorItem)
 

@@ -18,6 +18,8 @@ import com.maxkeppeler.sheets.info.InfoSheet
 import com.maxkeppeler.sheets.options.DisplayMode
 import com.maxkeppeler.sheets.options.Option
 import com.maxkeppeler.sheets.options.OptionsSheet
+import java.text.SimpleDateFormat
+import java.util.*
 
 public class SecondFragment : DialogFragment() {
     override fun onCreateView(
@@ -39,12 +41,15 @@ public class SecondFragment : DialogFragment() {
         val colorTextPrefered = myView.findViewById<ImageView>(R.id.imageViewColor)
         colorTextPrefered.setColorFilter(colorPicked - 5, android.graphics.PorterDuff.Mode.MULTIPLY)
         var getThisDialog = dialog;
+
+        val sdf = SimpleDateFormat("dd/MM/yyyy")
+        val currentDate = sdf.format(Date())
         buttonAdicionar.setOnClickListener{
-            if(titulo.toString().length > 1 && subtitulo.toString().length > 1){
+            if(titulo.toString().length >= 1 && subtitulo.toString().length >= 1){
                 usuario().commitNewData(
                     requireActivity(),
                     titulo.toString() + "R$",
-                    subtitulo.toString(),
+                    subtitulo.toString() + "-@" + currentDate,  // estilo da data: -@ 09/10/2022
                     colorPicked,
                     category.toString()
 

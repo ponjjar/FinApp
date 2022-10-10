@@ -1,15 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:id="@+id/friends"
-        android:icon="@drawable/iconuser"
-        android:title="Amigos" />
-    <item
         android:id="@+id/Notes"
         android:icon="@drawable/categorias"
         android:title="Notas" />
     <item
-        android:id="@+id/groups"
-        android:icon="@drawable/iconparty"
-        android:title="Grupo" />
+        android:id="@+id/friends"
+        android:icon="@drawable/agenda"
+        android:title="Economia" />
 </menu>

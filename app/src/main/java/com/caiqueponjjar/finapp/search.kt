@@ -70,7 +70,8 @@ class search : Fragment(R.layout.activity_search){
                                         itemColor?.toInt() ?: Color.parseColor("#E05F22"),
                                         userKey.toString(),
                                         getResources().getIdentifier(usuario().getIcons(category?.toInt() ?: 0) , "drawable", "com.caiqueponjjar.finapp")?: R.drawable.roundedconers,
-                                        "Searcher"
+                                        "Searcher",
+                                        ""
                                     )
                                 )
                                 var adapter = ListAdapter( itemList, requireActivity());

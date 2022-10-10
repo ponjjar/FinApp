@@ -2,7 +2,12 @@ package com.caiqueponjjar.finapp;
 
 import android.app.NotificationChannel
 import android.app.NotificationManager
+import android.content.BroadcastReceiver
+import android.content.Context
 import android.content.Context.NOTIFICATION_SERVICE
+import android.content.Intent
+import android.content.IntentFilter
+import android.graphics.BitmapFactory
 import android.graphics.Color
 import android.graphics.PointF
 import android.os.Build
@@ -20,6 +25,7 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
 import androidx.fragment.app.Fragment
+import androidx.localbroadcastmanager.content.LocalBroadcastManager
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearSmoothScroller
 import androidx.recyclerview.widget.RecyclerView
@@ -35,6 +41,57 @@ import java.util.*
 
 
 class FirstFragment : Fragment(R.layout.activity_firstfragment){
+    val onNotice: BroadcastReceiver = object : BroadcastReceiver() {
+        override fun onReceive(context: Context?, intent: Intent?) {
+            // String pack = intent.getStringExtra("package");
+            val title = intent?.getStringExtra("title")
+            val text = intent?.getStringExtra("text")
+            //int id = intent.getIntExtra("icon",0);
+            //  val remotePackageContext: context = null
+            try {
+//                remotePackageContext = getApplicationContext().createPackageContext(pack, 0);
+//                Drawable icon = remotePackageContext.getResources().getDrawable(id);
+//                if(icon !=null) {
+//                    ((ImageView) findViewById(R.id.imageView)).setBackground(icon);
+//                }
+                /*   val byteArray = intent.getByteArrayExtra("icon")
+                   var bmp: Bitmap? = null
+                   if (byteArray != null) {
+                       bmp = BitmapFactory.decodeByteArray(byteArray, 0, byteArray.size)
+                   }*/
+                System.out.println("Chegou notificação " + title.toString())
+
+                itemList.add(
+                    Item(
+                        title.toString(),
+                        text.toString(),
+                        Color.parseColor("#E05F22"),
+                        "testedev",
+                        1,
+                        "Note",
+                        ""
+                    )
+                )
+                Toast.makeText( context,title.toString(), Toast.LENGTH_SHORT).show()
+                //Toast.makeText(context,"",)
+                /* model.setName("$title $text")
+                 model.setImage(bmp)
+                 if (modelList != null) {
+                     modelList.add(model)
+                     adapter.notifyDataSetChanged()
+                 } else {
+                     modelList = ArrayList<Model>()
+                     modelList.add(model)
+                     adapter =
+                         CustomListAdapter(ApplicationProvider.getApplicationContext(), modelList)
+                     list = findViewById(R.id.list) as ListView
+                     list.setAdapter(adapter)*/
+
+            }catch (e: Exception) {
+                e.printStackTrace()
+            }
+        }
+    }
     private lateinit var itemList : ArrayList<Item>
     private lateinit var listview : RecyclerView
     private var isOnBackground : Boolean = false
@@ -42,9 +99,9 @@ class FirstFragment : Fragment(R.layout.activity_firstfragment){
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-          //  val textInfo = arguments?.getString("key")
-          //  val textView = view.findViewById<TextView>(R.id.textView)
-          //  textView.text = textInfo
+        //  val textInfo = arguments?.getString("key")
+        //  val textView = view.findViewById<TextView>(R.id.textView)
+        //  textView.text = textInfo
         var welcomeText = view.findViewById<TextView>(R.id.welcomeText)
         loadingList = view.findViewById<ConstraintLayout>(R.id.LoadingConstraint)
         var loadingImage = view.findViewById<ImageView>(R.id.LoadingImage)
@@ -74,7 +131,7 @@ class FirstFragment : Fragment(R.layout.activity_firstfragment){
 
         val pullToRefresh: SwipeRefreshLayout = view.findViewById(R.id.pullToRefresh)
         pullToRefresh.setOnRefreshListener {
-             // your code
+            // your code
             pullToRefresh.isRefreshing = false
         }
         listview = view.findViewById<RecyclerView>(R.id.list_item)
@@ -93,22 +150,22 @@ class FirstFragment : Fragment(R.layout.activity_firstfragment){
         })
         val FloatButton = view.findViewById<FloatingActionButton>(R.id.floatingActionButton)
         FloatButton.setOnClickListener {
-         /*   val nextFrag = SecondFragment()
-            requireActivity().supportFragmentManager.beginTransaction()
-                .replace(R.id.fragment_container_view, nextFrag, "findThisFragment")
-                .addToBackStack(null)
-                .commit()*/
+            /*   val nextFrag = SecondFragment()
+               requireActivity().supportFragmentManager.beginTransaction()
+                   .replace(R.id.fragment_container_view, nextFrag, "findThisFragment")
+                   .addToBackStack(null)
+                   .commit()*/
 
-         //val editNameDialogFragment: EditNameDialogFragment = EditNameDialogFragment.newInstance("Some Title")
+            //val editNameDialogFragment: EditNameDialogFragment = EditNameDialogFragment.newInstance("Some Title")
             val pop = SecondFragment()
             val fm = requireActivity().supportFragmentManager
 
             if (fm != null) {
                 pop.show(fm, "name")
-             //   fm.setStyle(DialogFragment.STYLE_NO_FRAME, 0);
+                //   fm.setStyle(DialogFragment.STYLE_NO_FRAME, 0);
                 pop.dialog?.getWindow()?.setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
             }
-            }
+        }
 
 
 
@@ -119,16 +176,15 @@ class FirstFragment : Fragment(R.layout.activity_firstfragment){
             ))
             listview.adapter =ListAdapter( itemList)
         }
-
         listview.adapter = ListAdapter( itemList)*/
 
         //var mLayoutManager = LinearLayoutManager(activity, LinearLayoutManager.VERTICAL,true)
         var mLayoutManager = GridLayoutManager(activity,2)
-       // mLayoutManager.reverseLayout = true;
-       // mLayoutManager.stackFromEnd = true;
+        // mLayoutManager.reverseLayout = true;
+        // mLayoutManager.stackFromEnd = true;
 
         listview.layoutManager =mLayoutManager
-
+        LocalBroadcastManager.getInstance(requireContext()).registerReceiver(onNotice,  IntentFilter("Msg"));
     }
 
 
@@ -148,9 +204,9 @@ class FirstFragment : Fragment(R.layout.activity_firstfragment){
             //for your view
             override fun computeScrollVectorForPosition(targetPosition: Int): PointF? {
 
-                    println("posicação:"+targetPosition)
-                    return this
-                        .computeScrollVectorForPosition(targetPosition)
+                println("posicação:"+targetPosition)
+                return this
+                    .computeScrollVectorForPosition(targetPosition)
             }
 
             //This returns the milliseconds it takes to
@@ -183,8 +239,12 @@ class FirstFragment : Fragment(R.layout.activity_firstfragment){
                 itemList.clear()
                 for (postSnapshot in snapshot.children) {
                     //Carregando lista de dados
-
-                    var subtitle = postSnapshot.child("subtitle").getValue(String::class.java)
+                    var text = postSnapshot.child("subtitle").getValue(String::class.java)
+                    var subtitle = text.toString().split("-@").toTypedArray()[0]
+                    var date = ""
+                    if(text.toString().split("-@").toTypedArray().size >= 2) {
+                        date = text.toString().split("-@").toTypedArray()[1]
+                    }
                     var title = postSnapshot.child("title").getValue(String::class.java)
                     var itemColor = postSnapshot.child("color").getValue(Int::class.java)
                     var key = postSnapshot.child("key").getValue(String::class.java)
@@ -200,7 +260,8 @@ class FirstFragment : Fragment(R.layout.activity_firstfragment){
                             itemColor?.toInt() ?: Color.parseColor("#E05F22"),
                             key.toString(),
                             getResources().getIdentifier(usuario().getIcons(category?.toInt() ?: 0) , "drawable", requireActivity().packageName)?: R.drawable.roundedconers,
-                            "Note"
+                            "Note",
+                            date.toString()
                         )
                     )
 
@@ -234,12 +295,27 @@ class FirstFragment : Fragment(R.layout.activity_firstfragment){
                             "",
                             R.drawable.logo4,
                             "CucoMessage",
+                            ""
                         )
                     )
 
                     listview.adapter = adapter
+                }else if(itemList.count() >= 3){
+                    itemList.add(
+                        Item(
+                            "Isso é tudo.",
+                            "Clique no botão azul para adicionar",
+                            Color.parseColor("#bad0ff"),
+                            "",
+                            R.drawable.logo4,
+                            "ClickItem",
+                            ""
+                        )
+                    )
+
                 }
                 adapter = ListAdapter( itemList, requireActivity());
+
                 loadingList.visibility = View.GONE
                 if(listview.adapter == null) {
                     listview.adapter = adapter
@@ -254,25 +330,25 @@ class FirstFragment : Fragment(R.layout.activity_firstfragment){
         })
     }
     fun onAppBackgrounded( title:String, subtitle:String, key:String, status:String, UserID:String){
-                  //  var itemColor = postSnapshot.child("color").getValue(Int::class.java)
-                  //  var status = postSnapshot.child("status").getValue(String::class.java)
-                    if (status == "sent") {
-                        var builder = NotificationCompat.Builder(requireContext(), "0")
-                            .setSmallIcon(R.drawable.logo4)
-                            .setContentTitle(title.toString())
-                            .setContentText(subtitle.toString())
-                            //.setStyle(NotificationCompat.BigTextStyle()
-                            //  .bigText("Much longer text that cannot fit one line..."))
-                            .setPriority(NotificationCompat.PRIORITY_DEFAULT)
-                        createNotificationChannel()
-                        var notificationManager = NotificationManagerCompat.from(requireContext())
+        //  var itemColor = postSnapshot.child("color").getValue(Int::class.java)
+        //  var status = postSnapshot.child("status").getValue(String::class.java)
+        if (status == "sent") {
+            var builder = NotificationCompat.Builder(requireContext(), "0")
+                .setSmallIcon(R.drawable.logo4)
+                .setContentTitle(title.toString())
+                .setContentText(subtitle.toString())
+                //.setStyle(NotificationCompat.BigTextStyle()
+                //  .bigText("Much longer text that cannot fit one line..."))
+                .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+            createNotificationChannel()
+            var notificationManager = NotificationManagerCompat.from(requireContext())
 
-                        val random = Random()
-                        var m: Int = random.nextInt(9999 - 1000) + 1000
-                        notificationManager.notify(m, builder.build())
-                     //   usuario().ChangeStatus("read", UserID, key.toString())
-                    }
-            }
+            val random = Random()
+            var m: Int = random.nextInt(9999 - 1000) + 1000
+            notificationManager.notify(m, builder.build())
+            //   usuario().ChangeStatus("read", UserID, key.toString())
+        }
+    }
     private fun createNotificationChannel() {
         // Create the NotificationChannel, but only on API 26+ because
         // the NotificationChannel class is new and not in the support library
@@ -300,8 +376,10 @@ class FirstFragment : Fragment(R.layout.activity_firstfragment){
         LoadNotes()
     }
 
-     override fun onPause() {
+    override fun onPause() {
         super.onPause()
         isOnBackground = true
     }
+
+
 }

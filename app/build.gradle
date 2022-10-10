@@ -41,7 +41,7 @@ apply plugin: 'com.google.gms.google-services'
 
 dependencies {
     def lifecycle_version = "2.1.0"
-
+    implementation 'androidx.localbroadcastmanager:localbroadcastmanager:1.0.0'
 // ViewModel and LiveData
     implementation "androidx.lifecycle:lifecycle-extensions:$lifecycle_version"
 // alternatively - just ViewModel
@@ -77,6 +77,7 @@ dependencies {
     implementation 'com.maxkeppeler.sheets:color:2.2.6'
     implementation 'com.maxkeppeler.sheets:core:2.2.6'
     implementation 'com.maxkeppeler.sheets:info:2.2.6'
+
     implementation 'com.maxkeppeler.sheets:options:2.2.6'
     implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.1.0'
     implementation 'androidx.core:core-ktx:1.7.0'

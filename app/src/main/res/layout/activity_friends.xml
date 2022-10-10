@@ -10,4 +10,186 @@
     android:orientation="vertical"
     android:theme="@style/Theme.Cuco">
 
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/LayoutFirst"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+            android:id="@+id/pullToRefresh"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout3"
+            tools:ignore="MissingConstraints">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/list_item"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/cardView"
+                app:reverseLayout="false"
+                app:stackFromEnd="false"
+                tools:listitem="@layout/activity_listitem">
+
+            </androidx.recyclerview.widget.RecyclerView>
+        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/floatingActionButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
+            android:clickable="true"
+            android:tint="#F3000000"
+            android:visibility="gone"
+            app:backgroundTint="@color/lightblue"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:srcCompat="@drawable/addicon"
+            tools:ignore="SpeakableTextPresentCheck" />
+
+        <LinearLayout
+            android:id="@+id/linearLayout3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cardView">
+
+            <Button
+                android:id="@+id/filtrarmes"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:layout_weight="1"
+                android:backgroundTint="#3D5AFE"
+                android:text="este mes"
+                android:textSize="12sp" />
+
+            <Button
+                android:id="@+id/filtrarsemana"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:layout_weight="1"
+                android:backgroundTint="#2979FF"
+                android:text="esta semana" />
+
+            <Button
+                android:id="@+id/filtrartodos"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:layout_weight="1"
+                android:backgroundTint="#00B0FF"
+                android:text="todos" />
+
+        </LinearLayout>
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/cardView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/gradientoolbar"
+            android:backgroundTint="#5A3B8ED7"
+            android:elevation="2dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="MissingConstraints">
+
+            <ImageView
+                android:id="@+id/search"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:visibility="gone"
+                app:srcCompat="@android:drawable/ic_menu_search"
+                tools:layout_editor_absoluteX="16dp"
+                tools:layout_editor_absoluteY="8dp" />
+
+            <TextView
+                android:id="@+id/welcomeText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="16dp"
+                android:gravity="center"
+                android:padding="4dp"
+                android:text="welcome"
+                android:textAppearance="@style/TextAppearance.AppCompat.Display4"
+                android:textSize="24sp"
+                tools:layout_editor_absoluteX="16dp"
+                tools:layout_editor_absoluteY="8dp" />
+
+
+        </com.google.android.material.appbar.MaterialToolbar>
+
+
+        <View
+            android:id="@+id/divider3"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="?android:attr/listDivider"
+            app:layout_constraintBottom_toTopOf="@+id/pullToRefresh" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/LoadingConstraint"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/gradientanimated"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/cardView">
+
+        <ProgressBar
+            android:id="@+id/LoadingList"
+            style="@android:style/Widget.Holo.Light.ProgressBar.Large"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@android:drawable/radiobutton_off_background"
+            android:backgroundTint="#dc5d23"
+            android:indeterminate="true"
+            android:indeterminateTint="#461701"
+            android:scaleX="1.2"
+            android:scaleY="1.2"
+            app:layout_constraintBottom_toBottomOf="@+id/LoadingImage"
+            app:layout_constraintEnd_toEndOf="@+id/LoadingImage"
+            app:layout_constraintHorizontal_bias="0.33"
+            app:layout_constraintStart_toStartOf="@+id/LoadingImage"
+            app:layout_constraintTop_toTopOf="@+id/LoadingImage" />
+
+        <ImageView
+            android:id="@+id/LoadingImage"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:background="@drawable/roundedconers"
+            android:stateListAnimator="@anim/floating"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/logo5" />
+
+        <TextView
+            android:id="@+id/BirdEyes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="36dp"
+            android:background="#461701"
+            android:paddingStart="12dp"
+            android:textSize="10sp"
+            app:layout_constraintStart_toStartOf="@+id/LoadingImage"
+            app:layout_constraintTop_toTopOf="@+id/LoadingImage" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
