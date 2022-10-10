@@ -29,7 +29,7 @@
 <img src="https://img.shields.io/badge/Ivan Poppi-green.svg" />
 <img src="https://img.shields.io/badge/Diogo Lima-red.svg" />
 </p>
-<h2>Introdução </h2>
+<h2  align="center" >Introdução </h2>
 <p> Pelo intermédio da pesquisa realizada pela CNN, 76% dos brasileiros não administraram bem finanças pessoais durante a pandemia, 58% dos entrevistados afirmaram comprar mais que o necessário, mesmo que isso aborde juros e consequentemente o item comprado saia mais caro.<br/><br/>
   Portanto, tivemos a ideia de criar um aplicativo pelo fácil uso e acesso que possa ajudar o usuário.</p>
 <h2 align="center"> Descrição </h2>
@@ -39,7 +39,7 @@ Um sistema organizado para tornar a experiência de lidar com o dinheiro menos e
 <p align="center">
 <i>Organize a sua vida financeira utilizando o FinApp.</i> </p>
 
-
+<center><img src="https://user-images.githubusercontent.com/58194653/185769373-910d652a-e3b4-4cde-8ac2-91ca042b1cc1.png" width="100%"/></center>
 <!--<img src="https://user-images.githubusercontent.com/58194653/153785417-79ad31a6-9942-4eda-b095-b326ad0380e8.png" width="100%"/>-->
 
 <h2 align="center"> Ferramentas utilizadas 🚀 </h2>
@@ -66,6 +66,6 @@ $ git clone https://github.com/Caique-P/FinApp
 
 
 <p align="center">
+<b><a href='https://drive.google.com/file/d/1pMK3S_Mj61lnx9KBvp0fe8r6Ssggfudm/view?usp=sharing'> Fazer download do FinApp </a></b><br/>
 <i>Em breve na play store.</i> </p>
- 
 
