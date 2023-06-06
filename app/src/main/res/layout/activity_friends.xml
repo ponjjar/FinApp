@@ -63,16 +63,6 @@
             app:layout_constraintTop_toBottomOf="@+id/cardView">
 
             <Button
-                android:id="@+id/filtrarmes"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginRight="10dp"
-                android:layout_weight="1"
-                android:backgroundTint="#3D5AFE"
-                android:text="este mes"
-                android:textSize="12sp" />
-
-            <Button
                 android:id="@+id/filtrarsemana"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -80,6 +70,15 @@
                 android:layout_weight="1"
                 android:backgroundTint="#2979FF"
                 android:text="esta semana" />
+
+            <Button
+                android:id="@+id/filtrarmes"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:layout_weight="1"
+                android:backgroundTint="#3D5AFE"
+                android:text="este mês" />
 
             <Button
                 android:id="@+id/filtrartodos"
@@ -112,7 +111,10 @@
                 app:srcCompat="@android:drawable/ic_menu_search"
                 tools:layout_editor_absoluteX="16dp"
                 tools:layout_editor_absoluteY="8dp" />
-
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
             <TextView
                 android:id="@+id/welcomeText"
                 android:layout_width="match_parent"
@@ -126,8 +128,43 @@
                 tools:layout_editor_absoluteX="16dp"
                 tools:layout_editor_absoluteY="8dp" />
 
+            <LinearLayout
+                android:id="@+id/meta"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/welcomeText2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="16dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:padding="4dp"
+                    android:text="Estabelecer uma meta"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Display4"
+                    android:textSize="20sp"
+                    tools:layout_editor_absoluteX="16dp"
+                    tools:layout_editor_absoluteY="8dp" />
+
+                <ImageView
+                    android:id="@+id/imageView"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_weight="1"
+                    android:tint="#1F11DC"
+                    app:srcCompat="@drawable/addicon" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
 
         </com.google.android.material.appbar.MaterialToolbar>
+
 
 
         <View

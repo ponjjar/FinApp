@@ -45,16 +45,23 @@ class SelectLogin : AppCompatActivity() {
         val preferences: SharedPreferences = this.getSharedPreferences("", MODE_PRIVATE)
         if(!preferences.getBoolean("firstTime",false)) {
             val builder = AlertDialog.Builder(this)
-            builder.setTitle("Bem vindo!")
-            builder.setMessage("Obrigado por baixar =D")
+            builder.setTitle("Termos e condições de uso")
+            builder.setMessage("Ao utilizar o aplicativo você concorda com os termos e condições de uso")
+            builder.setNeutralButton("Ver termos") { dialog, which ->
+                //Toast.makeText(applicationContext,"ver termos",Toast.LENGTH_SHORT).show()
+                // start a browser with the url
+                val browserIntent = Intent(Intent.ACTION_VIEW, Uri.parse("https://superponjjar.blogspot.com/2023/06/terms-conditions-finapp.html"))
+                startActivity(browserIntent)
+                finish()
+            }
             builder.setPositiveButton("Continuar") { dialog, which ->
                 //Toast.makeText(applicationContext,"continuar",Toast.LENGTH_SHORT).show()
                 dialog.dismiss()
+                preferences.edit().putBoolean("firstTime", true).apply()
             }
             val dialog: AlertDialog = builder.create()
             dialog.show()
 
-            preferences.edit().putBoolean("firstTime", true).apply()
         }
 
         // (getContext() as Activity).windowManager.defaultDisplay.getRealMetrics(metrics)

@@ -5,7 +5,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="?android:attr/windowBackground"
-    tools:context=".search">
+    android:backgroundTint="?android:attr/colorBackground"
+    tools:context=".search"
+
+    android:theme="@style/Theme.Cuco">
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textInputLayout"
@@ -19,8 +22,9 @@
             android:id="@+id/search_bar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="?android:attr/windowBackground"
-            android:hint="Pesquisar" />
+            android:hint="Pesquisar"
+            android:inputType="text|textAutoComplete"
+            android:textSize="20sp" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -38,7 +42,6 @@
         android:id="@+id/contacts"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:background="?android:attr/windowBackground"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

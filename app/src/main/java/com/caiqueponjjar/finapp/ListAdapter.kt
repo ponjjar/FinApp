@@ -154,10 +154,12 @@ class ListAdapter(val itemList: ArrayList<Item>, val activity: Activity) : Recyc
                 p0.itemView.startAnimation(anim)
             }
 
-        var x1: Float? =null
-        var x2: Float? =null
+            var x1: Float? =null
+            var x2: Float? =null
 
-            if (!itemList[p1].itemKey.equals("CucoMessage")) {
+            if (!itemList[p1].itemType.equals("CucoMessage") && !itemList[p1].itemKey.equals("CucoMessage") &&
+                    !itemList[p1].itemType.equals("ClickItem")
+                    ){
         p0.itemView.setOnTouchListener { e, motionEvent ->
 
 
@@ -187,8 +189,13 @@ class ListAdapter(val itemList: ArrayList<Item>, val activity: Activity) : Recyc
                             }
                             override fun onAnimationRepeat(arg0: Animation) {}
                             override fun onAnimationEnd(arg0: Animation) {
+                                try {
                                 if(itemList[p1].itemType != "ClickItem") {
+
                                     usuario().deleteData(activity, itemList[p1].itemKey)
+                                    animating = false
+                                }
+                                }catch (e:Exception) {
                                     animating = false
                                 }
                             }

@@ -1,23 +1,30 @@
 package com.caiqueponjjar.finapp;
 
+import android.app.AlertDialog
 import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Context.NOTIFICATION_SERVICE
+import android.content.DialogInterface
 import android.content.Intent
 import android.content.IntentFilter
+import android.content.SharedPreferences
 import android.graphics.Color
 import android.graphics.PointF
 import android.os.Build
 import android.os.Bundle
+import android.text.InputType
 import android.util.DisplayMetrics
+import android.view.Gravity
 import android.view.View
 import android.view.ViewGroup
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import android.widget.Button
+import android.widget.EditText
 import android.widget.ImageView
+import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
@@ -105,6 +112,16 @@ class friends : Fragment(R.layout.activity_friends){
         //  val textInfo = arguments?.getString("key")
         //  val textView = view.findViewById<TextView>(R.id.textView)
         //  textView.text = textInfo
+
+        val sharedPreferences: SharedPreferences =
+            requireActivity().getSharedPreferences(
+                "sharedPrefs",
+                Context.MODE_PRIVATE
+            )
+        if(!sharedPreferences.getString("meta", null).isNullOrEmpty()){
+            view?.findViewById<TextView>(R.id.welcomeText2).text = sharedPreferences.getString("meta", null).toString() + "R$"
+        }
+
         var welcomeText = view.findViewById<TextView>(R.id.welcomeText)
 
         loadingList = view.findViewById<ConstraintLayout>(R.id.LoadingConstraint)
@@ -152,6 +169,44 @@ class friends : Fragment(R.layout.activity_friends){
                 .addToBackStack(null)
                 .commit()
         })
+        val metabtn = view.findViewById<LinearLayout>(R.id.meta)
+        metabtn.setOnClickListener(
+            // on click activate input builder
+            {
+                val builder = AlertDialog.Builder(context)
+                builder.setTitle("Qual seu limite?")
+                val input = EditText(context)
+                input.inputType = InputType.TYPE_CLASS_NUMBER
+                // center text
+                input.gravity = Gravity.CENTER_HORIZONTAL
+                // add text size
+                input.textSize = 24f
+                builder.setView(input)
+                builder.setPositiveButton("Confirmar",
+                    DialogInterface.OnClickListener { dialog, which ->
+                        val m_Text = input.text.toString()
+                        if (m_Text.isEmpty()) {
+                            Toast.makeText(context, "Digite um valor", Toast.LENGTH_SHORT).show()
+                            return@OnClickListener
+                        }
+                        val sharedPreferences: SharedPreferences =
+                            requireActivity().getSharedPreferences(
+                                "sharedPrefs",
+                                Context.MODE_PRIVATE
+                            )
+                        val editor: SharedPreferences.Editor = sharedPreferences.edit()
+                        editor.putString("meta", m_Text)
+                        editor.apply()
+
+                        view.findViewById<TextView>(R.id.welcomeText2).setText("Meta: " + m_Text + "R$")
+
+
+                    })
+                builder.setNegativeButton("Cancel",
+                    DialogInterface.OnClickListener { dialog, which -> dialog.cancel() })
+                builder.show()
+            })
+
         val FloatButton = view.findViewById<FloatingActionButton>(R.id.floatingActionButton)
         FloatButton.setOnClickListener {
             /*   val nextFrag = SecondFragment()
@@ -222,6 +277,7 @@ class friends : Fragment(R.layout.activity_friends){
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+
         //requireContext().startService(Intent(requireActivity(), BackgroundService::class.java))
     }
 
@@ -268,7 +324,7 @@ class friends : Fragment(R.layout.activity_friends){
             }
 
             override fun onDataChange(snapshot: DataSnapshot) {
-
+                try {
                 var itemcountBefore = itemList.count()
                 itemList.clear()
                 for (postSnapshot in snapshot.children) {
@@ -347,6 +403,8 @@ class friends : Fragment(R.layout.activity_friends){
                         } else {
                             //Write your code you want to execute if myString is (not Int)
                         }
+                        try {
+
                         itemList.add(
                             Item(
                                 title.toString(),
@@ -358,6 +416,9 @@ class friends : Fragment(R.layout.activity_friends){
                                 date.toString()
                             )
                         )
+                        } catch (e: Exception) {
+                            println("erro: " + e)
+                        }
 
                     }
 
@@ -365,12 +426,130 @@ class friends : Fragment(R.layout.activity_friends){
 
 
                 }
-                if(tipo == "todos"){
+                val sharedPreferences = activity?.getSharedPreferences("sharedPrefs", Context.MODE_PRIVATE)
+                val arrayDicas = arrayOf(
+                    "Você sabia que o Brasil é o país que mais gasta com juros no mundo? Economize!",
+                    "Você sabia que a cada 100 reais que você gasta, 40 reais são de impostos? Economize!",
+                    "Está com dificuldades para economizar? Tente anotar todos os seus gastos!",
+                    "Estabeleça metas de economia para você e sua família!",
+                    "E se você tentasse economizar 10% do seu salário?",
+                    "Seus gastos totais foram " + gastosTotais + "R$! Tente economizar mais!",
+
+                    )
+                val colors = arrayOf(
+                    Color.parseColor("#8451ad"),
+                    Color.parseColor("#515fad"),
+                    Color.parseColor("#ad51ad"),
+                    Color.parseColor("#ad5151"),
+                    Color.parseColor("#ad7d51"),
+                    Color.parseColor("#adad51"),
+                    Color.parseColor("#7dad51"),
+                    Color.parseColor("#51ad51"),
+                    Color.parseColor("#51ad7d"),
+
+                )
+                if(tipo == "todos" && gastosTotais < 100){
+                    // crie um array com dicas de economias aleatórias
+
+
                     itemList.add(
                         Item(
                             "Veja sua economia clicando nos filtros",
                             "Clique no botão azul para adicionar",
-                            Color.parseColor("#ead0ff"),
+                            colors.random(),
+                            "",
+                            R.drawable.logo4,
+                            "ClickItem",
+                            ""
+                        )
+                    )
+                }else if (tipo == "mes" && gastosTotais < 50) {
+                    // give another tip
+                    itemList.add(
+                        Item(
+                            "Controle seus gastos mensais",
+                            "Clique no botão azul para adicionar",
+                            colors.random(),
+                            "",
+                            R.drawable.logo4,
+                            "ClickItem",
+                            ""
+                        )
+                    )
+                }else if (tipo == "semana" && gastosTotais < 50) {
+                    // give another tip
+                    itemList.add(
+                        Item(
+                            "Controle seus gastos semanais",
+                            "Clique no botão azul para adicionar",
+                            colors.random(),
+                            "",
+                            R.drawable.logo4,
+                            "ClickItem",
+                            ""
+                        )
+                    )
+                }
+                if ( sharedPreferences?.getString("meta", "0")?.toInt()!! < gastosTotais) {
+                    // give another tip
+                    if (
+                        gastosTotais > sharedPreferences?.getString("meta", "0")!!.toInt() * 2
+                    ) {
+                        itemList.add(
+                            Item(
+                                "Você está gastando muito! Já atingiu o dobro da seu limite!",
+                                "Clique no botão azul para adicionar",
+                                colors.random(),
+                                "",
+                                R.drawable.logo4,
+                                "ClickItem",
+                                ""
+                            )
+                        )
+                    }else if (gastosTotais > sharedPreferences?.getString("meta", "0")!!.toInt() * 1.5) {
+                        itemList.add(
+                            Item(
+                                "Você está gastando muito! Já atingiu 1.5x do seu limite!",
+                                "Clique no botão azul para adicionar",
+                                colors.random(),
+                                "",
+                                R.drawable.logo4,
+                                "ClickItem",
+                                ""
+                            )
+                        )
+                    }else if (gastosTotais > sharedPreferences?.getString("meta", "0")!!.toInt() * 1.25) {
+                        itemList.add(
+                            Item(
+                                "Já atingiu 1.25x do seu limite!",
+                                "Clique no botão azul para adicionar",
+                                colors.random(),
+                                "",
+                                R.drawable.logo4,
+                                "ClickItem",
+                                ""
+                            )
+                        )
+                    }else if (gastosTotais > sharedPreferences?.getString("meta", "0")!!.toInt() * 1.1) {
+                    itemList.add(
+                        Item(
+                            "Você ultrapassou sua meta de economia! ",
+                            "Clique no botão azul para adicionar",
+                            colors.random(),
+                            "",
+                            R.drawable.logo4,
+                            "ClickItem",
+                            ""
+                        )
+                    )
+                    }
+                     }else if (gastosTotais > 50 ) {
+                    itemList.add(
+                        Item(
+
+                            arrayDicas.random(),
+                            "Você está gastando muito!",
+                            colors.random(),
                             "",
                             R.drawable.logo4,
                             "ClickItem",
@@ -423,6 +602,11 @@ class friends : Fragment(R.layout.activity_friends){
                     }
                 }
                 //listview.adapter = adapter
+            }catch (e:Exception) {
+                    System.out.println(
+                        "Erro: " + e
+                    )
+                }
             }
         })
     }

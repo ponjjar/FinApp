@@ -81,7 +81,7 @@ class FirstFragment : Fragment(R.layout.activity_firstfragment){
                      adapter.notifyDataSetChanged()
                  } else {
                      modelList = ArrayList<Model>()
-                     modelList.add(model)
+                     modelList.add(model)rec
                      adapter =
                          CustomListAdapter(ApplicationProvider.getApplicationContext(), modelList)
                      list = findViewById(R.id.list) as ListView
@@ -238,6 +238,8 @@ class FirstFragment : Fragment(R.layout.activity_firstfragment){
                 var itemcountBefore = itemList.count()
                 itemList.clear()
                 for (postSnapshot in snapshot.children) {
+                    try {
+
                     //Carregando lista de dados
                     var text = postSnapshot.child("subtitle").getValue(String::class.java)
                     var subtitle = text.toString().split("-@").toTypedArray()[0]
@@ -268,7 +270,12 @@ class FirstFragment : Fragment(R.layout.activity_firstfragment){
 
 
 
+                }catch (e: Exception) {
+                        println(e)
+                    }
                 }
+                try {
+
                 scrollonfinish = false
                 System.out.println("Scroll on finish: " +itemList.count() +", " + itemcountBefore)
                 if(itemList.count() > itemcountBefore){
@@ -285,6 +292,9 @@ class FirstFragment : Fragment(R.layout.activity_firstfragment){
 
                     }
                 }
+                }catch (e: Exception) {
+                    println(e)
+                }
                 if(itemList.count() == 0){
 
                     itemList.add(
@@ -298,14 +308,52 @@ class FirstFragment : Fragment(R.layout.activity_firstfragment){
                             ""
                         )
                     )
+                    try {
 
                     listview.adapter = adapter
+                    }catch (e: Exception) {
+                        println(e)
+                    }
                 }else if(itemList.count() >= 3){
+                    val array = arrayOf(
+                        "Isso é tudo.",
+                        "Você está indo bem.",
+                        "Continue assim.",
+                        "Você é incrível.",
+                        "Você é demais.",
+                        "Você é o melhor.",
+                        "Você é o máximo.",
+                        "Você é um exemplo.",
+                        "Você é um orgulho.",
+                        "Você é um vencedor.",
+                        "Você é uma inspiração.",
+                        "Você é uma pessoa incrível.",
+                        "Você é uma pessoa maravilhosa.",
+                        "Você é uma pessoa muito especial.",
+                        "Você é uma pessoa muito querida.",
+                        "Você é uma pessoa muito valiosa.",
+                        "Você é uma pessoa muito vitoriosa.",
+                        "Você é uma pessoa muito importante.",
+                        "Você é uma pessoa muito inteligente.",
+                        "Você é uma pessoa muito especial."
+                    )
+                    val colors = arrayOf(
+                        Color.parseColor("#8451ad"),
+                        Color.parseColor("#515fad"),
+                        Color.parseColor("#ad51ad"),
+                        Color.parseColor("#ad5151"),
+                        Color.parseColor("#ad7d51"),
+                        Color.parseColor("#adad51"),
+                        Color.parseColor("#7dad51"),
+                        Color.parseColor("#51ad51"),
+                        Color.parseColor("#51ad7d"),
+
+                        )
                     itemList.add(
                         Item(
-                            "Isso é tudo.",
+                            array.random(),
                             "Clique no botão azul para adicionar",
-                            Color.parseColor("#bad0ff"),
+                             colors.random(),
                             "",
                             R.drawable.logo4,
                             "ClickItem",
@@ -314,6 +362,7 @@ class FirstFragment : Fragment(R.layout.activity_firstfragment){
                     )
 
                 }
+                try {
                 adapter = ListAdapter( itemList, requireActivity());
 
                 loadingList.visibility = View.GONE
@@ -324,6 +373,10 @@ class FirstFragment : Fragment(R.layout.activity_firstfragment){
                     if(scrollonfinish == true){
                         listview.smoothScrollToPosition(itemList.count())
                     }
+                }
+
+                }catch (e: Exception) {
+                    println(e)
                 }
                 //listview.adapter = adapter
             }
