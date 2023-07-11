@@ -66,5 +66,5 @@ $ git clone https://github.com/Caique-P/FinApp
 
 
 <p align="center">
-<b><a href='[https://drive.google.com/file/d/16xjnXt1l6ZGxXVTiJeO5aNyabY6CWbu6/view?usp=sharing](https://play.google.com/store/apps/details?id=com.caiqueponjjar.finapp)'> Disponivel na playstore </a></b><br/>
+<b><a href='https://play.google.com/store/apps/details?id=com.caiqueponjjar.finapp'> Disponivel na playstore </a></b><br/>
 
